@@ -1,0 +1,173 @@
+[
+  {
+    "name": "taskDescription",
+    "type": "text",
+    "widget": "html",
+    "label": "Task description",
+    "importance": "high",
+    "description": "Instructions shown to the learner above the image.",
+    "default": "Click each marker and type the name of the object.",
+    "enterMode": "p",
+    "tags": ["strong", "em", "u", "a", "ul", "ol", "br"]
+  },
+  {
+    "name": "image",
+    "type": "image",
+    "label": "Background image",
+    "importance": "high",
+    "description": "Image shown to the learner. Markers are placed on top of it."
+  },
+  {
+    "name": "backgroundImageAltText",
+    "type": "text",
+    "label": "Alternative text for background image",
+    "optional": true
+  },
+  {
+    "name": "points",
+    "type": "list",
+    "label": "Labeled points",
+    "importance": "high",
+    "entity": "point",
+    "min": 1,
+    "defaultNum": 1,
+    "widgets": [
+      { "name": "VerticalTabs", "label": "Default" }
+    ],
+    "field": {
+      "name": "point",
+      "type": "group",
+      "label": "Point",
+      "importance": "high",
+      "fields": [
+        {
+          "name": "position",
+          "type": "group",
+          "widget": "imageCoordinateSelector",
+          "imageFieldPath": "../../image",
+          "label": "Marker position",
+          "importance": "high",
+          "description": "Click the thumbnail to place the marker.",
+          "fields": [
+            { "name": "x", "type": "number" },
+            { "name": "y", "type": "number" },
+            { "name": "legacyPositioning", "type": "boolean" }
+          ]
+        },
+        {
+          "name": "answers",
+          "type": "text",
+          "label": "Accepted answers",
+          "description": "Separate alternatives with a forward slash, e.g. cat/kitten.",
+          "importance": "high"
+        },
+        {
+          "name": "caseSensitive",
+          "type": "boolean",
+          "label": "Case sensitive",
+          "default": false,
+          "optional": true
+        },
+        {
+          "name": "hint",
+          "type": "text",
+          "label": "Hint",
+          "optional": true
+        },
+        {
+          "name": "wrongAnswerFeedback",
+          "type": "text",
+          "label": "Feedback for wrong answer",
+          "optional": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "behaviour",
+    "type": "group",
+    "label": "Behavioural settings",
+    "importance": "low",
+    "fields": [
+      { "name": "enableRetry", "type": "boolean", "label": "Enable \"Retry\"", "default": true },
+      { "name": "enableSolutionsButton", "type": "boolean", "label": "Enable \"Show solution\"", "default": true },
+      { "name": "enableCheckButton", "type": "boolean", "label": "Enable \"Check\" button", "default": true },
+      {
+        "name": "inputMode",
+        "type": "select",
+        "label": "How learners enter answers",
+        "default": "popover",
+        "options": [
+          { "value": "popover", "label": "Click a marker to open an input (compact)" },
+          { "value": "list", "label": "Show all inputs in a list beside the image (reviewable)" },
+          { "value": "inline", "label": "Show input fields directly on the image at each point" }
+        ]
+      },
+      { "name": "acceptSpellingErrors", "type": "boolean", "label": "Accept minor spelling errors", "default": false },
+      { "name": "caseSensitive", "type": "boolean", "label": "Case sensitive (default for all points)", "default": false }
+    ]
+  },
+  {
+    "name": "overallFeedback",
+    "type": "group",
+    "label": "Overall Feedback",
+    "importance": "low",
+    "expanded": true,
+    "fields": [
+      {
+        "name": "overallFeedback",
+        "type": "list",
+        "widgets": [{ "name": "RangeList", "label": "Default" }],
+        "importance": "high",
+        "label": "Define custom feedback for any score range",
+        "entity": "range",
+        "min": 1,
+        "defaultNum": 1,
+        "optional": true,
+        "field": {
+          "name": "overallFeedback",
+          "type": "group",
+          "importance": "low",
+          "fields": [
+            { "name": "from", "type": "number", "label": "Score range", "min": 0, "max": 100, "default": 0 },
+            { "name": "to", "type": "number", "min": 0, "max": 100, "default": 100 },
+            { "name": "feedback", "type": "text", "label": "Feedback for defined score range", "importance": "low", "optional": true }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "l10n",
+    "type": "group",
+    "label": "Localization",
+    "importance": "low",
+    "common": true,
+    "fields": [
+      { "name": "checkAnswer", "type": "text", "label": "Check", "default": "Check" },
+      { "name": "showSolution", "type": "text", "label": "Show solution", "default": "Show solution" },
+      { "name": "tryAgain", "type": "text", "label": "Retry", "default": "Retry" },
+      { "name": "submitAnswer", "type": "text", "label": "Submit button label", "default": "Submit" },
+      { "name": "closeLabel", "type": "text", "label": "Close popover", "default": "Close" },
+      { "name": "hintLabel", "type": "text", "label": "Hint button", "default": "Hint" },
+      { "name": "correct", "type": "text", "label": "Correct", "default": "Correct" },
+      { "name": "incorrect", "type": "text", "label": "Incorrect", "default": "Incorrect" },
+      { "name": "almost", "type": "text", "label": "Close match", "default": "Almost — check your spelling" },
+      { "name": "scoreBarLabel", "type": "text", "label": "Score bar", "default": "You got :num out of :total points" },
+      { "name": "answerPlaceholder", "type": "text", "label": "Answer input placeholder", "default": "Type your answer" }
+    ]
+  },
+  {
+    "name": "a11y",
+    "type": "group",
+    "label": "Accessibility",
+    "importance": "low",
+    "common": true,
+    "fields": [
+      { "name": "markerLabel", "type": "text", "label": "Marker button label", "default": "Label point :num" },
+      { "name": "markerStatusUnanswered", "type": "text", "default": "unanswered" },
+      { "name": "markerStatusCorrect", "type": "text", "default": "correct" },
+      { "name": "markerStatusIncorrect", "type": "text", "default": "incorrect" }
+    ]
+  }
+]

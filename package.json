@@ -1,0 +1,15 @@
+{
+  "name": "h5p-label-the-image",
+  "version": "1.0.0",
+  "description": "H5P content type: authors place points on an image and learners type the name of each object.",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "pack": "node scripts/build-h5p.js",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "archiver": "^7.0.1",
+    "jest": "^29.7.0"
+  }
+}

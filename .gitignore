@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.h5p
+.DS_Store
+Thumbs.db
+.claude/
+.vscode/
+.idea/

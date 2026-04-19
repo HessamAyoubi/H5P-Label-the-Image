@@ -1,0 +1,26 @@
+name: Build .h5p package
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install
+      - run: npm run pack
+      - uses: actions/upload-artifact@v4
+        with:
+          name: label-the-image.h5p
+          path: dist/label-the-image.h5p
+      - name: Attach to release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/label-the-image.h5p

@@ -1,0 +1,8 @@
+{
+  "semantics": [
+    {
+      "label": "Task description",
+      "default": "Click each marker and type the name of the object."
+    }
+  ]
+}
