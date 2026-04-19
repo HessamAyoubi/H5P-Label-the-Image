@@ -12,7 +12,7 @@ H5P.LabelTheImage = (function ($, Question) {
       enableCheckButton: true,
       acceptSpellingErrors: false,
       caseSensitive: false,
-      inputMode: 'popover'
+      inputMode: 'inline'
     },
     overallFeedback: [],
     l10n: {

@@ -1,5 +1,5 @@
 .image-coordinate-selector {
-  max-width: 250px;
+  max-width: 100%;
   position: relative;
   margin: .5em 0;
 
@@ -7,10 +7,12 @@
   -moz-box-shadow: 0 0 10px 0 #666666;
   box-shadow: 0 0 10px 0 #666666;
   border: 1px solid #fff;
-  transition: max-width 0.4s;
 }
 .image-coordinate-selector.image-coordinate-wider {
   max-width: 100%;
+}
+.image-coordinate-resizer {
+  display: none;
 }
 .imageCoordinateSelector.no-image .image-coordinate-selector {
   display: none;

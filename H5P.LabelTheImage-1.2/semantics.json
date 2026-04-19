@@ -96,7 +96,7 @@
         "name": "inputMode",
         "type": "select",
         "label": "How learners enter answers",
-        "default": "popover",
+        "default": "inline",
         "options": [
           { "value": "popover", "label": "Click a marker to open an input (compact)" },
           { "value": "list", "label": "Show all inputs in a list beside the image (reviewable)" },
