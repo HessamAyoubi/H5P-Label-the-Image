@@ -190,10 +190,19 @@ H5P.LabelTheImage = (function ($, Question) {
   LabelTheImage.prototype.renderInlineInput = function (point, index) {
     var self = this;
     var pos = point.position || point;
+    var x = pos.x || 0;
+    var y = pos.y || 0;
     var markerLabel = (this.params.a11y.markerLabel || 'Label point :num').replace(':num', index + 1);
 
+    // Anchor the wrapper away from whichever edge it's near so the input
+    // never overflows the image when the player is rendered narrow.
+    var hAnchor = x < 25 ? 'left' : (x > 75 ? 'right' : 'center');
+    var vAnchor = y > 80 ? 'bottom' : 'top';
+
     var $wrap = $('<div class="h5p-label-the-image__inline" data-index="' + index + '"></div>')
-      .css({ left: (pos.x || 0) + '%', top: (pos.y || 0) + '%' })
+      .attr('data-h-anchor', hAnchor)
+      .attr('data-v-anchor', vAnchor)
+      .css({ left: x + '%', top: y + '%' })
       .appendTo(this.$markerLayer);
 
     $('<span class="h5p-label-the-image__inline-num"></span>').text(index + 1).appendTo($wrap);
