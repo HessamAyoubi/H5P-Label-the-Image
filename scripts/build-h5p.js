@@ -30,7 +30,7 @@ const h5pJson = {
   title: 'Label the Image',
   language: 'en',
   mainLibrary: 'H5P.LabelTheImage',
-  embedTypes: ['div'],
+  embedTypes: ['iframe'],
   license: 'U',
   preloadedDependencies: [
     { machineName: 'H5P.LabelTheImage', majorVersion: 1, minorVersion: 2 }

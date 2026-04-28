@@ -3,11 +3,12 @@
   "description": "Authors drop points on an image; learners type the name of each labeled object.",
   "majorVersion": 1,
   "minorVersion": 2,
-  "patchVersion": 7,
+  "patchVersion": 8,
   "runnable": 1,
   "author": "castLabs",
   "license": "MIT",
   "machineName": "H5P.LabelTheImage",
+  "embedTypes": ["iframe"],
   "coreApi": {
     "majorVersion": 1,
     "minorVersion": 24
