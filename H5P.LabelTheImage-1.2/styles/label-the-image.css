@@ -222,6 +222,7 @@
 
 .h5p-label-the-image__inline {
   position: absolute;
+  transform: translate(-50%, -50%);
   pointer-events: auto;
   display: flex;
   align-items: center;
@@ -231,21 +232,8 @@
   border-radius: 4px;
   padding: 0.15em 0.35em;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
-  max-width: 45%;
-  box-sizing: border-box;
+  max-width: 80%;
 }
-
-/* Edge-aware anchoring so the wrapper never overflows the image. */
-.h5p-label-the-image__inline[data-h-anchor="center"] { transform: translateX(-50%); }
-.h5p-label-the-image__inline[data-h-anchor="left"]   { transform: translateX(0); }
-.h5p-label-the-image__inline[data-h-anchor="right"]  { transform: translateX(-100%); }
-
-.h5p-label-the-image__inline[data-v-anchor="top"][data-h-anchor="center"]    { transform: translate(-50%, -50%); }
-.h5p-label-the-image__inline[data-v-anchor="top"][data-h-anchor="left"]      { transform: translate(0, -50%); }
-.h5p-label-the-image__inline[data-v-anchor="top"][data-h-anchor="right"]     { transform: translate(-100%, -50%); }
-.h5p-label-the-image__inline[data-v-anchor="bottom"][data-h-anchor="center"] { transform: translate(-50%, -100%); }
-.h5p-label-the-image__inline[data-v-anchor="bottom"][data-h-anchor="left"]   { transform: translate(0, -100%); }
-.h5p-label-the-image__inline[data-v-anchor="bottom"][data-h-anchor="right"]  { transform: translate(-100%, -100%); }
 
 .h5p-label-the-image__inline.is-correct { border-color: #137333; }
 .h5p-label-the-image__inline.is-incorrect { border-color: #c5221f; }
@@ -270,10 +258,10 @@
 
 .h5p-label-the-image__inline-input {
   flex: 1 1 auto;
-  min-width: 0;
-  width: 6em;
+  min-width: 7em;
+  width: 9em;
   padding: 0.2em 0.4em;
-  font-size: 0.9em;
+  font-size: 0.95em;
   border: 1px solid #888;
   border-radius: 3px;
   box-sizing: border-box;
@@ -283,16 +271,14 @@
 .h5p-label-the-image__inline-feedback {
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   margin-top: 0.25em;
   font-size: 0.8em;
   white-space: nowrap;
   background: rgba(255, 255, 255, 0.92);
   padding: 0.1em 0.4em;
   border-radius: 3px;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .h5p-label-the-image__inline-feedback.is-correct { color: #137333; }
