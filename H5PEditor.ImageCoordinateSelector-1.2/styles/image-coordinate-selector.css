@@ -14,6 +14,81 @@
 .image-coordinate-resizer {
   display: none;
 }
+
+.image-coordinate-numeric {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75em;
+  margin: 0.25em 0 0.5em;
+}
+
+.image-coordinate-numeric__field {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85em;
+  color: #444;
+}
+
+.image-coordinate-numeric__field span {
+  margin-bottom: 0.15em;
+  font-weight: 600;
+}
+
+.image-coordinate-numeric__field input {
+  width: 5.5em;
+  padding: 0.25em 0.4em;
+  font-size: 1em;
+  border: 1px solid #888;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.image-coordinate-numeric__hint {
+  font-size: 0.8em;
+  color: #777;
+  align-self: center;
+}
+
+.imageCoordinateSelector.no-image .image-coordinate-numeric__hint {
+  display: none;
+}
+
+/* Ghost markers showing other points in the same list while placing.
+   Visible during editing so authors can align by eye. */
+.image-coordinate-ghost {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(26, 115, 232, 0.45);
+  border: 1px solid #fff;
+  pointer-events: none;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+/* Snap guide lines flash when the cursor is within the snap
+   threshold of a sibling's X or Y. */
+.image-coordinate-guide {
+  position: absolute;
+  background: #ff5722;
+  pointer-events: none;
+  display: none;
+  z-index: 2;
+}
+.image-coordinate-guide--v {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  margin-left: -0.5px;
+}
+.image-coordinate-guide--h {
+  left: 0;
+  right: 0;
+  height: 1px;
+  margin-top: -0.5px;
+}
 .imageCoordinateSelector.no-image .image-coordinate-selector {
   display: none;
 }
