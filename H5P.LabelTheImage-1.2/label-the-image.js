@@ -134,7 +134,14 @@ H5P.LabelTheImage = (function ($, Question) {
       this.$image = $('<img class="h5p-label-the-image__image" />')
         .attr('src', H5P.getPath(imageParams.path, this.contentId))
         .attr('alt', this.params.backgroundImageAltText || '')
+        .on('load', function () { self.trigger('resize'); })
         .appendTo(this.$imageWrapper);
+      // If the image is already cached the load event may have fired
+      // before the listener was attached. Force a resize on next tick
+      // so the iframe height is recalculated either way.
+      if (this.$image[0].complete) {
+        setTimeout(function () { self.trigger('resize'); }, 0);
+      }
     } else {
       this.$imageWrapper.append('<div class="h5p-label-the-image__no-image">No image configured.</div>');
     }
@@ -157,6 +164,13 @@ H5P.LabelTheImage = (function ($, Question) {
     this.addButtons();
 
     this.on('resize', function () { self.closePopover(); });
+
+    // Safety net: H5P core measures the iframe height shortly after
+    // setContent, which can race against the image load. Fire a few
+    // additional resizes as fallback so the iframe always grows to
+    // fit the final laid-out content.
+    setTimeout(function () { self.trigger('resize'); }, 100);
+    setTimeout(function () { self.trigger('resize'); }, 500);
   };
 
   LabelTheImage.prototype.renderListRow = function (point, index) {
@@ -190,10 +204,17 @@ H5P.LabelTheImage = (function ($, Question) {
   LabelTheImage.prototype.renderInlineInput = function (point, index) {
     var self = this;
     var pos = point.position || point;
+    var y = pos.y || 0;
     var markerLabel = (this.params.a11y.markerLabel || 'Label point :num').replace(':num', index + 1);
 
+    // When the marker sits near the bottom of the image, show the
+    // Correct / Incorrect chip above the input rather than below so it
+    // doesn't get clipped by the image edge.
+    var feedbackAbove = y > 75;
+
     var $wrap = $('<div class="h5p-label-the-image__inline" data-index="' + index + '"></div>')
-      .css({ left: (pos.x || 0) + '%', top: (pos.y || 0) + '%' })
+      .attr('data-feedback-pos', feedbackAbove ? 'above' : 'below')
+      .css({ left: (pos.x || 0) + '%', top: y + '%' })
       .appendTo(this.$markerLayer);
 
     $('<span class="h5p-label-the-image__inline-num"></span>').text(index + 1).appendTo($wrap);

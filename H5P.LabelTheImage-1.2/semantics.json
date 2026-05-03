@@ -6,6 +6,7 @@
     "label": "Task description",
     "importance": "high",
     "description": "Instructions shown to the learner above the image.",
+    "optional": true,
     "default": "Click each marker and type the name of the object.",
     "enterMode": "p",
     "tags": ["strong", "em", "u", "a", "ul", "ol", "br"]

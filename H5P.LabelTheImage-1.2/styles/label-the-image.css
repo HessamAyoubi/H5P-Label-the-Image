@@ -281,6 +281,15 @@
   border-radius: 3px;
 }
 
+/* Flip the feedback chip above the wrapper when the marker sits
+   near the bottom of the image so it isn't clipped by the edge. */
+.h5p-label-the-image__inline[data-feedback-pos="above"] .h5p-label-the-image__inline-feedback {
+  top: auto;
+  bottom: 100%;
+  margin-top: 0;
+  margin-bottom: 0.25em;
+}
+
 .h5p-label-the-image__inline-feedback.is-correct { color: #137333; }
 .h5p-label-the-image__inline-feedback.is-incorrect { color: #c5221f; }
 
