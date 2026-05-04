@@ -1,9 +1,17 @@
-name: Build .h5p package
+name: Build & Release .h5p
 
 on:
+  # Manual trigger from the GitHub Actions UI — enter the version to release.
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g. 1.2.16)'
+        required: true
+        type: string
+
+  # Also fires automatically when a v* tag is pushed from the command line.
   push:
     tags: ['v*']
-  workflow_dispatch:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -16,17 +24,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      # When triggered manually, create and push the tag so the release has one.
+      - name: Create and push tag (manual trigger only)
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag "v${{ inputs.version }}"
+          git push origin "v${{ inputs.version }}"
+
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+
       - run: npm install
       - run: npm run pack
+
       - uses: actions/upload-artifact@v4
         with:
           name: label-the-image.h5p
           path: dist/label-the-image.h5p
-      - name: Attach to release
-        if: startsWith(github.ref, 'refs/tags/')
+
+      - name: Create GitHub Release and attach .h5p
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ github.event_name == 'workflow_dispatch' && format('v{0}', inputs.version) || github.ref_name }}
+          name: ${{ github.event_name == 'workflow_dispatch' && format('v{0}', inputs.version) || github.ref_name }}
           files: dist/label-the-image.h5p
