@@ -3,7 +3,7 @@
   "description": "Authors drop points on an image; learners type the name of each labeled object.",
   "majorVersion": 1,
   "minorVersion": 2,
-  "patchVersion": 15,
+  "patchVersion": 16,
   "runnable": 1,
   "author": "castLabs",
   "license": "MIT",
@@ -21,7 +21,8 @@
   ],
   "editorDependencies": [
     { "machineName": "H5PEditor.ImageCoordinateSelector", "majorVersion": 1, "minorVersion": 2 },
-    { "machineName": "H5PEditor.VerticalTabs", "majorVersion": 1, "minorVersion": 3 }
+    { "machineName": "H5PEditor.VerticalTabs", "majorVersion": 1, "minorVersion": 3 },
+    { "machineName": "H5PEditor.RangeList", "majorVersion": 1, "minorVersion": 0 }
   ],
   "preloadedDependencies": [
     { "machineName": "H5P.Question", "majorVersion": 1, "minorVersion": 5 },

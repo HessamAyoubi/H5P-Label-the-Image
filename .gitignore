@@ -6,3 +6,6 @@ Thumbs.db
 .claude/
 .vscode/
 .idea/
+
+# H5P editor dependencies fetched at build time (unmodified official libraries)
+H5PEditor.VerticalTabs-1.3/

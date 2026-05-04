@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect x="4" y="10" width="56" height="40" rx="3" fill="#e8eefc" stroke="#1a73e8" stroke-width="2"/>
-  <circle cx="22" cy="28" r="5" fill="#1a73e8"/>
-  <text x="22" y="31" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="#fff">1</text>
-  <circle cx="44" cy="34" r="5" fill="#1a73e8"/>
-  <text x="44" y="37" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="#fff">2</text>
-  <rect x="10" y="54" width="44" height="6" rx="2" fill="#1a73e8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="60" height="60">
+  <rect x="3" y="8" width="54" height="38" rx="3" fill="#e8eefc" stroke="#1a73e8" stroke-width="2"/>
+  <circle cx="20" cy="26" r="5" fill="#1a73e8"/>
+  <text x="20" y="29" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="#fff">1</text>
+  <circle cx="42" cy="32" r="5" fill="#1a73e8"/>
+  <text x="42" y="35" text-anchor="middle" font-family="Arial" font-size="7" font-weight="700" fill="#fff">2</text>
+  <rect x="8" y="52" width="44" height="6" rx="2" fill="#1a73e8"/>
 </svg>

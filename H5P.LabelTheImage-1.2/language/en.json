@@ -2,7 +2,100 @@
   "semantics": [
     {
       "label": "Task description",
+      "description": "Instructions shown to the learner above the image.",
       "default": "Click each marker and type the name of the object."
+    },
+    {
+      "label": "Background image",
+      "description": "Image shown to the learner. Markers are placed on top of it."
+    },
+    {
+      "label": "Alternative text for background image"
+    },
+    {
+      "label": "Labeled points",
+      "entity": "point",
+      "field": {
+        "label": "Point",
+        "fields": [
+          {
+            "label": "Marker position",
+            "description": "Click the thumbnail to place the marker."
+          },
+          {
+            "label": "Accepted answers",
+            "description": "Separate alternatives with a forward slash, e.g. cat/kitten."
+          },
+          {
+            "label": "Case sensitive"
+          },
+          {
+            "label": "Hint"
+          },
+          {
+            "label": "Feedback for wrong answer"
+          }
+        ]
+      }
+    },
+    {
+      "label": "Behavioural settings",
+      "fields": [
+        { "label": "Enable \"Retry\"" },
+        { "label": "Enable \"Show solution\"" },
+        { "label": "Enable \"Check\" button" },
+        {
+          "label": "How learners enter answers",
+          "options": [
+            { "label": "Click a marker to open an input (compact)" },
+            { "label": "Show all inputs in a list beside the image (reviewable)" },
+            { "label": "Show input fields directly on the image at each point" }
+          ]
+        },
+        { "label": "Accept minor spelling errors" },
+        { "label": "Case sensitive (default for all points)" }
+      ]
+    },
+    {
+      "label": "Overall Feedback",
+      "fields": [
+        {
+          "label": "Define custom feedback for any score range",
+          "entity": "range",
+          "field": {
+            "fields": [
+              { "label": "Score range" },
+              {},
+              { "label": "Feedback for defined score range" }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "Localization",
+      "fields": [
+        { "label": "Check", "default": "Check" },
+        { "label": "Show solution", "default": "Show solution" },
+        { "label": "Retry", "default": "Retry" },
+        { "label": "Submit button label", "default": "Submit" },
+        { "label": "Close popover", "default": "Close" },
+        { "label": "Hint button", "default": "Hint" },
+        { "label": "Correct", "default": "Correct" },
+        { "label": "Incorrect", "default": "Incorrect" },
+        { "label": "Close match", "default": "Almost — check your spelling" },
+        { "label": "Score bar", "default": "You got :num out of :total points" },
+        { "label": "Answer input placeholder", "default": "Type your answer" }
+      ]
+    },
+    {
+      "label": "Accessibility",
+      "fields": [
+        { "label": "Marker button label", "default": "Label point :num" },
+        { "label": "Marker status: unanswered", "default": "unanswered" },
+        { "label": "Marker status: correct", "default": "correct" },
+        { "label": "Marker status: incorrect", "default": "incorrect" }
+      ]
     }
   ]
 }
